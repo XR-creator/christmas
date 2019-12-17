@@ -19,24 +19,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .anyRequest().authenticated()
                 .and()
-                .oauth2Login();
-//        http.authorizeRequests()
-//                .antMatchers("/oauth_login", "/loginFailure", "/")
-//                .permitAll()
-//                .anyRequest()
-//                .authenticated()
-//                .and()
-//                .oauth2Login()
-//                .loginPage("/oauth_login")
-//                .authorizationEndpoint()
-//                .baseUri("/oauth2/authorize-client")
-//                .authorizationRequestRepository(authorizationRequestRepository())
-//                .and()
-//                .tokenEndpoint()
-//                .accessTokenResponseClient(accessTokenResponseClient())
-//                .and()
-//                .defaultSuccessUrl("/loginSuccess")
-//                .failureUrl("/loginFailure");
+                .oauth2Login()
+                .defaultSuccessUrl("/", true);
     }
 
     @Bean

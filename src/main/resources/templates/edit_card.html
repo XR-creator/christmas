@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменить карточку</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Material Design for Bootstrap fonts and icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+
+    <!-- Material Design for Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+          integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+</head>
+<body>
+<div class="bmd-layout-container bmd-drawer-f-l bmd-drawer-overla">
+    <header class="bmd-layout-header">
+        <div class="navbar navbar-light bg-faded">
+            <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-p1">
+                <span class="sr-only">Toggle drawer</span>
+                <i class="material-icons">menu</i>
+            </button>
+            <ul class="nav navbar-nav">
+                <li class="nav-item">Настройка</li>
+            </ul>
+        </div>
+    </header>
+    <div id="dw-p1" class="bmd-layout-drawer bg-faded">
+        <header>
+            <a class="navbar-brand">Меню</a>
+        </header>
+        <ul class="list-group">
+            <a class="list-group-item" href="/index.html">Главня</a>
+            <a class="list-group-item" href="/statistics_group.html">Статистика команд</a>
+            <a class="list-group-item" href="/statistics_user.html">Статистика игроков</a>
+            <a class="list-group-item" href="/admin.html">Настройки</a>
+        </ul>
+    </div>
+    <main class="bmd-layout-content">
+        <div class="container">
+            <form style="padding-top: 10%">
+                <div class="form-group">
+                    <label for="cardTitle">Карточка</label>
+                    <select class="form-control" id="cardTitle">
+                        <option>БД</option>
+                        <option>Инкапсуляция</option>
+                        <option>Полиморфизм</option>
+                        <option>Рефлексия</option>
+                        <option>Перегрузка</option>
+                        <option>Курсор</option>
+                        <option>Вью</option>
+                        <option>БД</option>
+                        <option>Инкапсуляция</option>
+                        <option>Полиморфизм</option>
+                        <option>Рефлексия</option>
+                        <option>Перегрузка</option>
+                        <option>Курсор</option>
+                        <option>Вью</option>
+                        <option>БД</option>
+                        <option>Инкапсуляция</option>
+                        <option>Полиморфизм</option>
+                        <option>Рефлексия</option>
+                        <option>Перегрузка</option>
+                        <option>Курсор</option>
+                        <option>Вью</option>
+                        <option>БД</option>
+                        <option>Инкапсуляция</option>
+                        <option>Полиморфизм</option>
+                        <option>Рефлексия</option>
+                        <option>Перегрузка</option>
+                        <option>Курсор</option>
+                        <option>Вью</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="newCardTitle">Новый заголовок</label>
+                    <input type="text" class="form-control" id="newCardTitle" placeholder="слово">
+                </div>
+                <div class="form-group">
+                    <label for="userType">Тип</label>
+                    <select class="form-control" id="cardType">
+                        <option>Тим лид</option>
+                        <option>Аналитик</option>
+                        <option>Тестер</option>
+                        <option>Разработчик</option>
+                    </select>
+                </div>
+            </form>
+            <div class="container-fluid text-center"
+                 style="padding-top: 50%; padding-bottom: 10%; display: grid; width: 100%">
+                <button type="button" class="btn btn-raised btn-primary" data-toggle="modal"
+                        data-target=".bd-example-modal-sm">Изменить карточку
+                </button>
+            </div>
+        </div>
+    </main>
+</div>
+
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+     style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="mySmallModalLabel">Ответ от сервера</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                готово
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
+        integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
+        crossorigin="anonymous"></script>
+<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
+        integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
+        crossorigin="anonymous"></script>
+<script>$(document).ready(function () {
+    $('body').bootstrapMaterialDesign();
+});</script>
+</body>
+</html>

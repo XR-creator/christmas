@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Вопрос</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Material Design for Bootstrap fonts and icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+
+    <!-- Material Design for Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+          integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+</head>
+<body>
+
+<p class="text-center text-uppercase font-weight-bold" style="padding-top: 30%; font-size:9vw;">Слово о БД</p>
+
+<div class="container-fluid text-center" style="padding-top: 10%; display: grid; width: 100%;">
+    <button type="button" class="btn btn-raised btn-primary" data-toggle="modal" data-target="#userModalLong">Угадал
+    </button>
+    <button type="button" class="btn btn-raised btn-primary">Другое слово</button>
+    <button type="button" class="btn btn-raised btn-primary" onclick="window.location.href = '/index.html';">Отмена
+    </button>
+</div>
+
+<div class="modal fade" id="userModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Выберите кто ответил</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action active">
+                        Имя
+                    </a>
+                    <a href="/index.html" class="list-group-item list-group-item-action">Федор</a>
+                    <a href="/index.html" class="list-group-item list-group-item-action">Павел</a>
+                    <a href="/index.html" class="list-group-item list-group-item-action">Дмитрий</a>
+                    <a href="/index.html" class="list-group-item list-group-item-action">Антон</a>
+                    <a href="/index.html" class="list-group-item list-group-item-action">Федор</a>
+                    <a href="/index.html" class="list-group-item list-group-item-action">Павел</a>
+                    <a href="/index.html" class="list-group-item list-group-item-action">Дмитрий</a>
+                    <a href="/index.html" class="list-group-item list-group-item-action">Антон</a>
+                    <a href="/index.html" class="list-group-item list-group-item-action">Федор</a>
+                    <a href="/index.html" class="list-group-item list-group-item-action">Павел</a>
+                    <a href="/index.html" class="list-group-item list-group-item-action">Дмитрий</a>
+                    <a href="/index.html" class="list-group-item list-group-item-action">Антон</a>
+                    <a href="/index.html" class="list-group-item list-group-item-action">Федор</a>
+                    <a href="/index.html" class="list-group-item list-group-item-action">Павел</a>
+                    <a href="/index.html" class="list-group-item list-group-item-action">Дмитрий</a>
+                    <a href="/index.html" class="list-group-item list-group-item-action">Антон</a>
+                    <a href="/index.html" class="list-group-item list-group-item-action">Федор</a>
+                    <a href="/index.html" class="list-group-item list-group-item-action">Павел</a>
+                    <a href="/index.html" class="list-group-item list-group-item-action">Дмитрий</a>
+                    <a href="/index.html" class="list-group-item list-group-item-action">Антон</a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
+        integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
+        crossorigin="anonymous"></script>
+<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
+        integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
+        crossorigin="anonymous"></script>
+<script>$(document).ready(function () {
+    $('body').bootstrapMaterialDesign();
+});</script>
+</body>
+</html>

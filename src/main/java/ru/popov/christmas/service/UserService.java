@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.stereotype.Service;
 import ru.popov.christmas.dto.UserDTO;
-import ru.popov.christmas.model.Card;
 import ru.popov.christmas.model.User;
 import ru.popov.christmas.model.UserGoogle;
 import ru.popov.christmas.service.dao.UserRepository;
@@ -48,13 +47,14 @@ public class UserService {
         User user = userRepository.findByEmail(userGoogle.getEmail());
         if (user == null) {
             user = new User();
-//            TODO: Тута выбор роли случайно, но в первых 10 выборках обязательно 4 тимлида
-            user.setCard(cardService.generateCard());
         }
 
         user.setToken(userGoogle.getId());
         user.setEmail(userGoogle.getEmail());
         user.setName(userGoogle.getName());
+        if (user.getCard() == null) {
+            user.setCard(cardService.generateCard());
+        }
         User save = userRepository.save(user);
 
         return userMapper.toDto(save);
