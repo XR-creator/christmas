@@ -12,8 +12,14 @@
     <link rel="stylesheet"
           href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
           integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <link rel="shortcut icon" href="img/favicon.png">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
+<div class="loading">
+    <div class="loader"></div>
+</div>
+
 <div class="bmd-layout-container bmd-drawer-f-l bmd-drawer-overla">
     <header class="bmd-layout-header">
         <div class="navbar navbar-light bg-faded">
@@ -31,7 +37,7 @@
             <a class="navbar-brand">Меню</a>
         </header>
         <ul class="list-group">
-            <a class="list-group-item" href="/index.html">Главня</a>
+            <a class="list-group-item" href="/index.html">Главная</a>
             <a class="list-group-item" href="/statistics_group.html">Статистика команд</a>
             <a class="list-group-item" href="/statistics_user.html">Статистика игроков</a>
             <a class="list-group-item" href="/admin.html">Настройки</a>
@@ -39,12 +45,17 @@
     </div>
     <main class="bmd-layout-content">
         <div class="container-fluid">
-            <div class="text-center" style="padding-top: 10%">
-                <img src="img/Билл%20Гейтс.jpg" class="img-fluid" alt="Responsive image">
+            <div class="jumbotron">
+                <h1 id="titleRole" class="display-4">Имя роли</h1>
+                <p id="typeRole" class="lead">Описание роли</p>
+                <hr class="my-4">
+                <p id="descriptionRole">Подробное описание о персонаже</p>
+                <div class="text-center">
+                    <img id="imageRole" src="" class="img-fluid" alt="Photo">
+                </div>
             </div>
-
             <div class="container-fluid text-center"
-                 style="padding-top: 10%; padding-bottom: 50%; display: grid; width: 100%">
+                 style="padding-top: 5%; padding-bottom: 50%; display: grid; width: 100%">
                 <button type="button" class="btn btn-raised btn-primary"
                         onclick="window.location.href = '/question.html?type=ANALITYC';">АНАЛИТИК
                 </button>
@@ -62,14 +73,18 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
         integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
         crossorigin="anonymous"></script>
 <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
         integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
         crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
 <script>$(document).ready(function () {
     $('body').bootstrapMaterialDesign();
+    init();
+    getUserInfo();
 });</script>
 </body>
 </html>

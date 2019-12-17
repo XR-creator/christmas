@@ -1,5 +1,6 @@
 package ru.popov.christmas.service.dao;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import ru.popov.christmas.model.CardType;
@@ -10,5 +11,8 @@ import java.util.List;
 @Repository
 public interface QuestionRepository extends CrudRepository<Question, Long> {
 
-    List<Question> findByTypeAndUsedIsFalse(CardType type);
+    Integer countByTypeAndUsedIsFalse();
+
+    List<Question> findByTypeAndUsedIsFalse(CardType type, Pageable pageable);
+
 }

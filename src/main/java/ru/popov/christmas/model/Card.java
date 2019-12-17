@@ -17,6 +17,9 @@ public class Card extends BaseEntity {
     private String title;
 
     @Column
+    private String description;
+
+    @Column
     @Enumerated(EnumType.STRING)
     private CardType cardType;
 

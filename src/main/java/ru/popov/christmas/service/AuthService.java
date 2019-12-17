@@ -18,7 +18,7 @@ import java.net.URISyntaxException;
 import java.util.Map;
 
 @Service
-public class AuthService {
+public class AuthService extends AbstractService {
 
     @Autowired
     private OAuth2AuthorizedClientService authorizedClientService;

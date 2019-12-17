@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Random;
 
 @Service
-public class CardService {
+public class CardService extends AbstractService {
 
     protected static final int MAX_ROLE_CARDS = 10;
     @Autowired

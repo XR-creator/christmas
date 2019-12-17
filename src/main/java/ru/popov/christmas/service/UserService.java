@@ -12,16 +12,10 @@ import ru.popov.christmas.service.mapper.UserMapper;
 import javax.transaction.Transactional;
 
 @Service
-public class UserService {
-
-    @Autowired
-    private UserRepository userRepository;
+public class UserService extends AbstractService {
 
     @Autowired
     private UserMapper userMapper;
-
-    @Autowired
-    private AuthService authService;
 
     @Autowired
     private CardService cardService;
@@ -40,11 +34,7 @@ public class UserService {
             return null;
         }
 
-        if (userGoogle.getEmail() == null) {
-            return null;
-        }
-
-        User user = userRepository.findByEmail(userGoogle.getEmail());
+        User user = getUser(authentication);
         if (user == null) {
             user = new User();
         }

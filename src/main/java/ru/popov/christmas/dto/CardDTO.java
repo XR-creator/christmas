@@ -13,6 +13,7 @@ import java.io.Serializable;
 public class CardDTO extends BaseDTO implements Serializable {
 
     private String title;
+    private String description;
     private CardType cardType;
     private String pathIcon;
 }
