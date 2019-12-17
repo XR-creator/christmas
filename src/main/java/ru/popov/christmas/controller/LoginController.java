@@ -71,7 +71,7 @@ public class LoginController {
             Map userAttributes = response.getBody();
             model.addAttribute("name", userAttributes.get("name"));
 
-            return userAttributes.get("name").toString();
+            return "loginSuccess";
         }
 
         return "loginSuccess";
