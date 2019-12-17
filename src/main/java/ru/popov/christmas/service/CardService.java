@@ -16,7 +16,7 @@ public class CardService {
         Integer leadCount = cardRepository.countByCardTypeEquals(CardType.TEAM_LEAD);
 
         if (leadCount >= 4) {
-            return
+            return null;
         }
 
         return null;
