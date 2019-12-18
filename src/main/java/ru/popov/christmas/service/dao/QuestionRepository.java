@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface QuestionRepository extends CrudRepository<Question, Long> {
 
-    Integer countByTypeAndUsedIsFalse();
+    Integer countByTypeAndUsedIsFalse(CardType type);
 
     List<Question> findByTypeAndUsedIsFalse(CardType type, Pageable pageable);
 

@@ -37,7 +37,7 @@ public class QuestionService extends AbstractService {
             throw new RuntimeException("card type is empty - user: " + user.getEmail() + "/cardId: " + user.getCard().getId());
         }
 
-        Integer max = questionRepository.countByTypeAndUsedIsFalse();
+        Integer max = questionRepository.countByTypeAndUsedIsFalse(user.getCard().getCardType());
         int index = new Random().nextInt(max);
         List<Question> questions = questionRepository.findByTypeAndUsedIsFalse(user.getCard().getCardType(), PageRequest.of(index, 1));
 

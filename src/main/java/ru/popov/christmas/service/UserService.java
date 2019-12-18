@@ -34,7 +34,7 @@ public class UserService extends AbstractService {
             return null;
         }
 
-        User user = getUser(authentication);
+        User user = userRepository.findByEmail(userGoogle.getEmail());
         if (user == null) {
             user = new User();
         }
