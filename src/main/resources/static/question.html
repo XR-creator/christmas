@@ -20,7 +20,7 @@
     <div class="loader"></div>
 </div>
 
-<div class="bmd-layout-container bmd-drawer-f-l bmd-drawer-overla">
+<div class="bmd-layout-container bmd-drawer-f-l bmd-drawer-overla" style="min-height: 300px">
     <header class="bmd-layout-header">
         <div class="navbar navbar-light bg-faded">
             <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-p1">
@@ -37,7 +37,7 @@
             <a class="navbar-brand">Меню</a>
         </header>
         <ul class="list-group">
-            <a class="list-group-item" href="/index.html">Главня</a>
+            <a class="list-group-item" href="/index.html">Главная</a>
             <a class="list-group-item" href="/statistics_group.html">Статистика команд</a>
             <a class="list-group-item" href="/statistics_user.html">Статистика игроков</a>
             <a class="list-group-item" href="/admin.html">Настройки</a>
@@ -45,14 +45,13 @@
     </div>
     <main class="bmd-layout-content">
         <div class="container-fluid">
-            <p class="text-center text-uppercase font-weight-bold" style="padding-top: 30%; font-size:9vw;">Слово о
-                БД</p>
+            <p id="wordText" class="text-center text-uppercase font-weight-bold" style="padding-top: 30%; font-size:9vw;">---</p>
 
             <div class="container-fluid text-center" style="padding-top: 10%; display: grid; width: 100%;">
-                <button type="button" class="btn btn-raised btn-primary" data-toggle="modal"
+                <button id="requestBtn" type="button" class="btn btn-raised btn-primary" data-toggle="modal"
                         data-target="#userModalLong">Угадал
                 </button>
-                <button type="button" class="btn btn-raised btn-primary">Другое слово</button>
+                <button id="repeatBtn" type="button" class="btn btn-raised btn-primary" onclick="getQuestion()">Другое слово</button>
                 <button type="button" class="btn btn-raised btn-primary"
                         onclick="window.location.href = '/index.html';">Отмена
                 </button>
@@ -73,30 +72,10 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="list-group">
+                <div id="listUsers" class="list-group">
                     <a href="#" class="list-group-item list-group-item-action active">
                         Имя
                     </a>
-                    <a href="/index.html" class="list-group-item list-group-item-action">Федор</a>
-                    <a href="/index.html" class="list-group-item list-group-item-action">Павел</a>
-                    <a href="/index.html" class="list-group-item list-group-item-action">Дмитрий</a>
-                    <a href="/index.html" class="list-group-item list-group-item-action">Антон</a>
-                    <a href="/index.html" class="list-group-item list-group-item-action">Федор</a>
-                    <a href="/index.html" class="list-group-item list-group-item-action">Павел</a>
-                    <a href="/index.html" class="list-group-item list-group-item-action">Дмитрий</a>
-                    <a href="/index.html" class="list-group-item list-group-item-action">Антон</a>
-                    <a href="/index.html" class="list-group-item list-group-item-action">Федор</a>
-                    <a href="/index.html" class="list-group-item list-group-item-action">Павел</a>
-                    <a href="/index.html" class="list-group-item list-group-item-action">Дмитрий</a>
-                    <a href="/index.html" class="list-group-item list-group-item-action">Антон</a>
-                    <a href="/index.html" class="list-group-item list-group-item-action">Федор</a>
-                    <a href="/index.html" class="list-group-item list-group-item-action">Павел</a>
-                    <a href="/index.html" class="list-group-item list-group-item-action">Дмитрий</a>
-                    <a href="/index.html" class="list-group-item list-group-item-action">Антон</a>
-                    <a href="/index.html" class="list-group-item list-group-item-action">Федор</a>
-                    <a href="/index.html" class="list-group-item list-group-item-action">Павел</a>
-                    <a href="/index.html" class="list-group-item list-group-item-action">Дмитрий</a>
-                    <a href="/index.html" class="list-group-item list-group-item-action">Антон</a>
                 </div>
             </div>
             <div class="modal-footer">
@@ -109,6 +88,7 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
         integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
         crossorigin="anonymous"></script>
@@ -119,6 +99,7 @@
 <script>$(document).ready(function () {
     $('body').bootstrapMaterialDesign();
     init();
+    getQuestion();
 });</script>
 </body>
 </html>

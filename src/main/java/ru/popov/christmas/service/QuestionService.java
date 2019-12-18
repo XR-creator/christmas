@@ -7,6 +7,7 @@ import org.springframework.security.oauth2.client.authentication.OAuth2Authentic
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import ru.popov.christmas.dto.QuestionDTO;
+import ru.popov.christmas.model.CardType;
 import ru.popov.christmas.model.Question;
 import ru.popov.christmas.model.User;
 import ru.popov.christmas.service.dao.QuestionRepository;
@@ -26,20 +27,24 @@ public class QuestionService extends AbstractService {
     private QuestionMapper questionMapper;
 
     @Transactional
-    public QuestionDTO getQuestionNext(OAuth2AuthenticationToken authentication) {
+    public QuestionDTO getQuestionNext(CardType cardType, OAuth2AuthenticationToken authentication) {
         User user = getUser(authentication);
 
         if (user.getCard() == null) {
             throw new RuntimeException("card not found - user: " + user.getEmail());
         }
 
-        if (user.getCard().getCardType() == null) {
+        if (cardType == null) {
             throw new RuntimeException("card type is empty - user: " + user.getEmail() + "/cardId: " + user.getCard().getId());
         }
 
-        Integer max = questionRepository.countByTypeAndUsedIsFalse(user.getCard().getCardType());
+        Integer max = questionRepository.countByTypeAndUsedIsFalse(cardType);
+        if (max == 0) {
+            return null;
+        }
+
         int index = new Random().nextInt(max);
-        List<Question> questions = questionRepository.findByTypeAndUsedIsFalse(user.getCard().getCardType(), PageRequest.of(index, 1));
+        List<Question> questions = questionRepository.findByTypeAndUsedIsFalse(cardType, PageRequest.of(index, 1));
 
         Question questionResult = questions.get(0);
         if (questionResult != null) {
@@ -48,5 +53,9 @@ public class QuestionService extends AbstractService {
         }
 
         return !CollectionUtils.isEmpty(questions) ? questionMapper.toDto(questionResult) : null;
+    }
+
+    public Question findById(Long questionId) {
+        return questionRepository.findById(questionId).get();
     }
 }

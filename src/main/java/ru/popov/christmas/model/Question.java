@@ -17,6 +17,7 @@ public class Question extends BaseEntity {
     private String text;
 
     @Column
+    @Enumerated(EnumType.STRING)
     private CardType type;
 
     @Column

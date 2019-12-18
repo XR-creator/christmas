@@ -26,8 +26,11 @@ public class User extends BaseEntity {
     private Boolean isAdmin;
 
     @Column
-    private Integer count;
+    private Integer count = 0;
 
     @OneToOne
     private Card card;
+
+    @ManyToOne
+    private User parent;
 }

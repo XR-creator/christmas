@@ -14,7 +14,8 @@ import java.util.Random;
 @Service
 public class CardService extends AbstractService {
 
-    protected static final int MAX_ROLE_CARDS = 10;
+    protected static final int MAX_ROLE_CARDS = 6;
+
     @Autowired
     private CardRepository cardRepository;
 
@@ -25,6 +26,8 @@ public class CardService extends AbstractService {
                 PageRequest.of(0, MAX_ROLE_CARDS - cards.size()));
         cards.addAll(otherCards);
 
-        return !CollectionUtils.isEmpty(cards) ? cards.get(new Random().nextInt(otherCards.size())) : null;
+        int index = new Random().nextInt(cards.size());
+        System.out.println("random = " + index);
+        return !CollectionUtils.isEmpty(cards) ? cards.get(index) : null;
     }
 }

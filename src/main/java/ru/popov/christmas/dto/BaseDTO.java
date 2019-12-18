@@ -1,10 +1,15 @@
 package ru.popov.christmas.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Date;
 
+@Getter
+@Setter
 public abstract class BaseDTO {
 
-    private Long id;
+    protected Long id;
 
-    private Date create;
+    protected Date create;
 }
