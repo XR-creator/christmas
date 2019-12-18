@@ -12,6 +12,8 @@ public interface UserRepository extends CrudRepository<User, Long> {
 
     User findByEmail(String email);
 
+    List<User> findAllByIdIsNot(Long id);
+
     @Query(value = "SELECT user FROM User user join user.card card where card.cardType <> 'TEAM_LEAD'")
     List<User> findAllWithoutTeamLead();
 

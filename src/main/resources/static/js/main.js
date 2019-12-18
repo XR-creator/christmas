@@ -1,3 +1,5 @@
+let teamLeadType = 'TEAM_LEAD';
+
 function init() {
     $('.loading').css('display', 'none');
 }
@@ -12,6 +14,8 @@ function unmask() {
 
 function getUserInfo() {
     mask();
+    $("#questionButtons").prop('display', 'none');
+
     $.getJSON("/api/user", function (data) {
         if (!data) return;
 
@@ -20,14 +24,20 @@ function getUserInfo() {
         if (data.card.title) {
             $('#titleRole').text(data.card.title);
         }
-        if (data.card.cardType) {
-            $('#typeRole').text(data.card.cardType.title)
+        if (data.card.cardTypeDescription) {
+            $('#typeRole').text(data.card.cardTypeDescription);
         }
         if (data.card.description) {
             $('#descriptionRole').text(data.card.description)
         }
+        if (data.card.cardType === teamLeadType) {
+            $("#questionButtons").css('display', 'grid');
+        }
         if (data.card.pathIcon) {
             $('#imageRole').attr("src", "img/" + data.card.pathIcon);
+        }
+        if (data.isAdmin) {
+            $('#settingsBtn').css('display', 'block');
         }
 
     }).always(function () {
@@ -84,13 +94,14 @@ function incUserAnswer(userId, questionId) {
         cache: false,
         timeout: 600000,
         success: function () {
-            window.location.href = '/index.html';
             unmask();
         },
-        error: function () {
+        error: function (e) {
             unmask();
         }
     });
+
+    window.location.href = '/index.html';
 }
 
 function getStatByUser() {

@@ -41,7 +41,7 @@
             <a class="list-group-item" href="/index.html">Главная</a>
             <a class="list-group-item" href="/statistics_group.html">Статистика команд</a>
             <a class="list-group-item" href="/statistics_user.html">Статистика игроков</a>
-            <a class="list-group-item" href="/admin.html">Настройки</a>
+            <a id="settingsBtn" class="list-group-item" style="display: none" href="/admin.html">Настройки</a>
         </ul>
     </div>
     <main class="bmd-layout-content">
@@ -76,6 +76,7 @@
 <script>$(document).ready(function () {
     $('body').bootstrapMaterialDesign();
     init();
+    getStatByGroup();
 });</script>
 </body>
 </html>

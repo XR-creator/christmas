@@ -25,4 +25,7 @@ public class Card extends BaseEntity {
 
     @Column
     private String pathIcon;
+
+    @OneToOne(mappedBy = "card", fetch = FetchType.LAZY)
+    private User user;
 }

@@ -20,8 +20,8 @@ public class CardService extends AbstractService {
     private CardRepository cardRepository;
 
     public Card generateCard() {
-        List<Card> cards = cardRepository.findAllByCardTypeEquals(CardType.TEAM_LEAD);
-        List<Card> otherCards = cardRepository.findAllByCardTypeIsNot(
+        List<Card> cards = cardRepository.findAllByCardTypeEqualsAndUserIsNull(CardType.TEAM_LEAD);
+        List<Card> otherCards = cardRepository.findAllByCardTypeIsNotAndUserIsNull(
                 CardType.TEAM_LEAD,
                 PageRequest.of(0, MAX_ROLE_CARDS - cards.size()));
         cards.addAll(otherCards);

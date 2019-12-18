@@ -40,7 +40,7 @@
             <a class="list-group-item" href="/index.html">Главная</a>
             <a class="list-group-item" href="/statistics_group.html">Статистика команд</a>
             <a class="list-group-item" href="/statistics_user.html">Статистика игроков</a>
-            <a class="list-group-item" href="/admin.html">Настройки</a>
+            <a id="settingsBtn" class="list-group-item" style="display: none" href="/admin.html">Настройки</a>
         </ul>
     </div>
     <main class="bmd-layout-content">
@@ -54,8 +54,8 @@
                     <img id="imageRole" src="" class="img-fluid" alt="Photo">
                 </div>
             </div>
-            <div class="container-fluid text-center"
-                 style="padding-top: 5%; padding-bottom: 50%; display: grid; width: 100%">
+            <div id="questionButtons" class="container-fluid text-center"
+                 style="padding-top: 5%; padding-bottom: 50%; display: none; width: 100%">
                 <button type="button" class="btn btn-raised btn-primary"
                         onclick="window.location.href = '/question.html?type=ANALYTIC';">АНАЛИТИК
                 </button>

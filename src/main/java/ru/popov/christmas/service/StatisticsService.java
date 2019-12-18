@@ -19,21 +19,19 @@ import java.util.List;
 @Service
 public class StatisticsService extends AbstractService {
 
-    protected static final Comparator<? extends StatsDTO> positionComparator = (o1, o2) -> {
+    protected static final Comparator<StatsDTO> positionComparator = (o1, o2) -> {
         if (o1.getCount() == null
                 && o2.getCount() == null) {
             return 0;
         }
-
         if (o1.getCount() == null) {
+            return -1;
+        }
+        if (o2.getCount() == null) {
             return 1;
         }
 
-        if (o2.getCount() == null) {
-            return -1;
-        }
-
-        return o1.getCount().compareTo(o2.getCount());
+        return o2.getCount().compareTo(o1.getCount());
     };
 
     protected static final Comparator<StatsDTO> nameComparator = (o1, o2) -> {
@@ -41,17 +39,16 @@ public class StatisticsService extends AbstractService {
                 && o2.getName() == null) {
             return 0;
         }
-
         if (o1.getName() == null) {
+            return -1;
+        }
+        if (o2.getName() == null) {
             return 1;
         }
 
-        if (o2.getName() == null) {
-            return -1;
-        }
-
-        return o1.getName().compareTo(o2.getName());
+        return o2.getName().compareTo(o1.getName());
     };
+
     @Autowired
     private UserService userService;
 
@@ -93,7 +90,17 @@ public class StatisticsService extends AbstractService {
         Collections.sort(result, positionComparator);
 
         for (int i = 0; i < result.size(); i++) {
-            result.get(i).setPosition(i + 1);
+            StatsDTO statsItem = result.get(i);
+            if (i > 0) {
+                Integer beforePosition = result.get(i - 1).getPosition();
+                if (result.get(i - 1).getCount().equals(statsItem.getCount())) {
+                    statsItem.setPosition(beforePosition);
+                } else {
+                    statsItem.setPosition(beforePosition + 1);
+                }
+            } else {
+                statsItem.setPosition(1);
+            }
         }
 
         Collections.sort(result, nameComparator);

@@ -33,8 +33,8 @@ public class UserController {
     }
 
     @GetMapping("/withoutLead")
-    public List<UserDTO> getUserWithoutLead(OAuth2AuthenticationToken authentication) {
-        return userService.getAllWithoutLead(authentication);
+    public List<UserDTO> getUserWithoutCurUser(OAuth2AuthenticationToken authentication) {
+        return userService.getAllWithoutCurUser(authentication);
     }
 
     @GetMapping("/info")

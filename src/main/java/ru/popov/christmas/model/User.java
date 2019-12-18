@@ -23,7 +23,7 @@ public class User extends BaseEntity {
     private String email;
 
     @Column
-    private Boolean isAdmin;
+    private Boolean isAdmin = false;
 
     @Column
     private Integer count = 0;

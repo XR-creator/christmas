@@ -11,7 +11,7 @@ public interface CardRepository extends CrudRepository<Card, Long> {
 
     Integer countByCardTypeEquals(CardType type);
 
-    List<Card> findAllByCardTypeEquals(CardType type);
+    List<Card> findAllByCardTypeEqualsAndUserIsNull(CardType type);
 
-    List<Card> findAllByCardTypeIsNot(CardType type, Pageable pageable);
+    List<Card> findAllByCardTypeIsNotAndUserIsNull(CardType type, Pageable pageable);
 }

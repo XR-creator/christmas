@@ -52,10 +52,10 @@ public class UserService extends AbstractService {
     }
 
     @Transactional
-    public List<UserDTO> getAllWithoutLead(OAuth2AuthenticationToken authentication) {
-        getUser(authentication);
+    public List<UserDTO> getAllWithoutCurUser(OAuth2AuthenticationToken authentication) {
+        User user = getUser(authentication);
 
-        return userMapper.toDto(userRepository.findAllWithoutTeamLead());
+        return userMapper.toDto(userRepository.findAllByIdIsNot(user.getId()));
     }
 
     public User findById(Long userId) {

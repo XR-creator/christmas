@@ -1,12 +1,10 @@
 package ru.popov.christmas.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 
 import java.io.Serializable;
 
 @Getter
-@JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum CardType implements Serializable {
 
     TESTER("Тестировщик"),
