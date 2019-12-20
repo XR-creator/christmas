@@ -12,7 +12,8 @@ public interface UserRepository extends CrudRepository<User, Long> {
 
     User findByEmail(String email);
 
-    List<User> findAllByIdIsNot(Long id);
+    @Query(value = "SELECT user FROM User user join user.card card where card.cardType <> 'ADMIN' and user.id <> ?1")
+    List<User> findAllByIdIsNotAndAdmins(Long id);
 
     @Query(value = "SELECT user FROM User user join user.card card where card.cardType <> 'TEAM_LEAD'")
     List<User> findAllWithoutTeamLead();
@@ -20,6 +21,12 @@ public interface UserRepository extends CrudRepository<User, Long> {
     @Query(value = "SELECT user FROM User user join user.card card where card.cardType = 'TEAM_LEAD'")
     List<User> getAllTeamLeads();
 
-    @Query(value = "SELECT sum(user.count) FROM User user join user.parent parent where parent.id = ?1")
+    @Query(value = "SELECT sum(user.count + user.groupCount) FROM User user left join user.parent parent where parent.id = ?1 or user.id = ?1")
     Integer getSumCountUsersByLead(Long leadId);
+
+    @Query(value = "SELECT user FROM User user join user.card card where card.cardType <> 'ADMIN'")
+    List<User> getAllWithoutAdmin();
+
+    @Query(value = "SELECT user FROM User user left join user.parent parent where parent.id = ?1")
+    List<User> getUsersByLead(Long leadId);
 }

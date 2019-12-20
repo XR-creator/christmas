@@ -10,4 +10,9 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 public class UserStatsDTO extends StatsDTO implements Serializable {
+
+    public UserStatsDTO(String name, Integer count) {
+        this.name = name;
+        this.count = count;
+    }
 }

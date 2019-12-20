@@ -9,8 +9,9 @@ public enum CardType implements Serializable {
 
     TESTER("Тестировщик"),
     DEVELOPER("Разработчик"),
-    ANALYTIC("Аналитик"),
-    TEAM_LEAD("Тим лид");
+    SUPPORT("Аналитик"),
+    TEAM_LEAD("Тим лид"),
+    ADMIN("Администратор");
 
     private String title;
 

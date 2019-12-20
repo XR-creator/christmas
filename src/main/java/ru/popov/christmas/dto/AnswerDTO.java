@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Answer implements Serializable {
+public class AnswerDTO implements Serializable {
 
     private Long userId;
     private Long questionId;

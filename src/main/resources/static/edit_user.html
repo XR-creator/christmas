@@ -48,91 +48,21 @@
         <div class="container">
             <form style="padding-top: 10%">
                 <div class="form-group">
-                    <label for="userId">Пользователь</label>
-                    <select class="form-control" id="userId">
-                        <option>abc@mail.ru</option>
-                        <option>defg@mail.ru</option>
-                        <option>hkl@mail.ru</option>
-                        <option>abc@mail.ru</option>
-                        <option>defg@mail.ru</option>
-                        <option>hkl@mail.ru</option>
-                        <option>abc@mail.ru</option>
-                        <option>defg@mail.ru</option>
-                        <option>hkl@mail.ru</option>
-                        <option>abc@mail.ru</option>
-                        <option>defg@mail.ru</option>
-                        <option>hkl@mail.ru</option>
-                        <option>abc@mail.ru</option>
-                        <option>defg@mail.ru</option>
-                        <option>hkl@mail.ru</option>
-                        <option>abc@mail.ru</option>
-                        <option>defg@mail.ru</option>
-                        <option>hkl@mail.ru</option>
+                    <label for="userEditSelector">Пользователь</label>
+                    <select class="form-control" id="userEditSelector">
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="userName">Имя</label>
-                    <input type="text" class="form-control" id="userName" placeholder="имя игрока">
-                </div>
-                <div class="form-group">
-                    <label for="user">Баллы</label>
-                    <input type="number" class="form-control" id="user" placeholder="число баллов">
-                </div>
-                <div class="form-group">
-                    <label for="cardTitle">Карточка</label>
-                    <select class="form-control" id="cardTitle">
-                        <option>Родригес</option>
-                        <option>Шварцнегер</option>
-                        <option>Гном</option>
-                        <option>Крот</option>
-                        <option>Универсальный солдат</option>
-                        <option>Родригес</option>
-                        <option>Шварцнегер</option>
-                        <option>Гном</option>
-                        <option>Крот</option>
-                        <option>Универсальный солдат</option>
-                        <option>Родригес</option>
-                        <option>Шварцнегер</option>
-                        <option>Гном</option>
-                        <option>Крот</option>
-                        <option>Универсальный солдат</option>
-                        <option>Родригес</option>
-                        <option>Шварцнегер</option>
-                        <option>Гном</option>
-                        <option>Крот</option>
-                        <option>Универсальный солдат</option>
-                        <option>Родригес</option>
-                        <option>Шварцнегер</option>
-                        <option>Гном</option>
-                        <option>Крот</option>
-                        <option>Универсальный солдат</option>
-                    </select>
+                    <label for="userCount">Баллы</label>
+                    <input id="userCount" type="number" class="form-control" placeholder="число баллов">
                 </div>
             </form>
             <div class="container-fluid text-center" style="padding-top: 10%; display: grid; width: 100%">
-                <button type="button" class="btn btn-raised btn-primary" data-toggle="modal"
-                        data-target=".bd-example-modal-sm">Изменить пользователя
+                <button type="button" class="btn btn-raised btn-primary" onclick="editUserCount()">Изменить
                 </button>
             </div>
         </div>
     </main>
-</div>
-
-<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
-     style="display: none;" aria-hidden="true">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="mySmallModalLabel">Ответ от сервера</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                готово
-            </div>
-        </div>
-    </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -145,10 +75,12 @@
 <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
         integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
         crossorigin="anonymous"></script>
+<script src="js/lodash.js"></script>
 <script src="js/main.js"></script>
 <script>$(document).ready(function () {
     $('body').bootstrapMaterialDesign();
     init();
+    getUsersForCounts();
 });</script>
 </body>
 </html>

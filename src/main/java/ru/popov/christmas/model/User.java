@@ -28,6 +28,9 @@ public class User extends BaseEntity {
     @Column
     private Integer count = 0;
 
+    @Column
+    private Integer groupCount = 0;
+
     @OneToOne
     private Card card;
 

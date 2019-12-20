@@ -55,21 +55,33 @@ public class UserService extends AbstractService {
     public List<UserDTO> getAllWithoutCurUser(OAuth2AuthenticationToken authentication) {
         User user = getUser(authentication);
 
-        return userMapper.toDto(userRepository.findAllByIdIsNot(user.getId()));
+        return userMapper.toDto(userRepository.findAllByIdIsNotAndAdmins(user.getId()));
     }
 
+    @Transactional
     public User findById(Long userId) {
         return userRepository.findById(userId).get();
     }
 
+    @Transactional
+    public UserDTO findByIdtoDTO(Long userId) {
+        return userMapper.toDto(userRepository.findById(userId).get());
+    }
+
+    @Transactional
     public User save(User user) {
         return userRepository.save(user);
     }
 
+    @Transactional
     public List<User> getAll() {
         List<User> result = new ArrayList<>();
 
-        userRepository.findAll().forEach(userItem -> result.add(userItem));
+        userRepository.findAll().forEach(userItem -> {
+            if (!userItem.getIsAdmin()) {
+                result.add(userItem);
+            }
+        });
 
         return result;
     }
@@ -80,5 +92,19 @@ public class UserService extends AbstractService {
 
     public Integer getSumCountUsersByLead(Long leadId) {
         return userRepository.getSumCountUsersByLead(leadId);
+    }
+
+    @Transactional
+    public List<UserDTO> getAllWithoutAdmin(OAuth2AuthenticationToken authentication) {
+        User user = getUser(authentication);
+        if (!user.getIsAdmin()) {
+            return new ArrayList<>();
+        }
+
+        return userMapper.toDto(userRepository.getAllWithoutAdmin());
+    }
+
+    public List<User> getUsersByLead(Long leadId) {
+        return userRepository.getUsersByLead(leadId);
     }
 }

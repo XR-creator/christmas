@@ -71,10 +71,15 @@ public class StatisticsService extends AbstractService {
         List<GroupStatsDTO> result = new ArrayList<>();
         List<User> users = userService.getAllTeamLeads();
         for (User userItem : users) {
+            List<UserStatsDTO> usersStats = new ArrayList<>();
+            userService.getUsersByLead(userItem.getId())
+                    .forEach(resultItem -> usersStats.add(new UserStatsDTO(resultItem.getName(), resultItem.getCount())));
             GroupStatsDTO statItem = new GroupStatsDTO(
                     userItem.getId(),
                     userItem.getName(),
-                    userService.getSumCountUsersByLead(userItem.getId()));
+                    userService.getSumCountUsersByLead(userItem.getId()),
+                    userItem.getGroupCount(),
+                    usersStats);
             result.add(statItem);
         }
         calcPosition(result);
